@@ -21,12 +21,12 @@
 
         public function addDepartmentForm(){
             
-            $data['department'] = $this->input->post('department');
+            $data['departmentName'] = $this->input->post('department');
     
             //Validation
-            $department = $data['department'];
+            $department = $data['departmentName'];
     
-            if(empty(empty($department))){
+            if(empty($department)){
                 $sdata = array();
                 $sdata['msg'] = '<span style="color:red">Fields Must NOT be Empty</span>';
     
@@ -36,11 +36,21 @@
                 $this->department_model->saveDepartment($data);
     
                 $sdata = array();
-                $sdata['msg'] = '<span style="color:green">Student added successfully</span>';
+                $sdata['msg'] = '<span style="color:green">Department added successfully</span>';
     
                 $this->session->set_flashdata($sdata);
                 redirect("department/adddepartment");
             }
+        }
+
+        public function departmentlist(){
+            $data['title'] = 'Department List';
+            $data['header'] = $this->load->view('inc/header', $data, TRUE);
+            $data['sidebar'] = $this->load->view('inc/sidebar', '', TRUE);
+            $data['departmentData'] = $this->department_model->getAllDepartments();
+            $data['listdepartment'] = $this->load->view('inc/listdepartment', $data, TRUE);
+            $data['footer'] = $this->load->view('inc/footer', '', TRUE);
+            $this->load->view('departmentlist', $data);
         }
     }
 ?>
