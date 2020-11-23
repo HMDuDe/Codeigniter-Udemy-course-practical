@@ -10,8 +10,8 @@
 			<li><a href="<?php echo base_url(); ?>department/adddepartment"><span class="fa fa-caret-right"></span>Add Department</a></li>
             <li><a href="<?php echo base_url(); ?>department/departmentlist"><span class="fa fa-caret-right"></span>Department List</a></li>
 								
-			<li><a href="addauthor.html"><span class="fa fa-caret-right"></span>Add Author</a></li>
-            <li><a href="authorlist.html"><span class="fa fa-caret-right"></span>Author List</a></li>
+			<li><a href="<?php echo base_url(); ?>author/addAuthor"><span class="fa fa-caret-right"></span>Add Author</a></li>
+            <li><a href="<?php echo base_url(); ?>author/authorlist"><span class="fa fa-caret-right"></span>Author List</a></li>
 			
 			<li><a href="addbook.html"><span class="fa fa-caret-right"></span>Add Book</a></li>
             <li><a href="booklist.html"><span class="fa fa-caret-right"></span>Book List</a></li>

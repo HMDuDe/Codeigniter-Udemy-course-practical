@@ -6,6 +6,7 @@ class Student extends CI_Controller {
 	public function __construct(){
         parent::__construct();
         $this->load->model('student_model');
+        $this->load->model('department_model');
 
         $data = array();
     }
@@ -15,6 +16,7 @@ class Student extends CI_Controller {
         $data['title'] = 'Add New Student';
         $data['header'] = $this->load->view('inc/header', $data, TRUE);
         $data['sidebar'] = $this->load->view('inc/sidebar', '', TRUE);
+        $data['departmentData'] = $this->department_model->getAllDepartments();
         $data['studentAdd'] = $this->load->view('inc/studentAdd', '', TRUE);
         $data['footer'] = $this->load->view('inc/footer', '', TRUE);
         $this->load->view('addstudent', $data);

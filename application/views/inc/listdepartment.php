@@ -29,7 +29,7 @@
                     <td><?php echo $ddata->departmentName; ?></td>
                     <td>
                         <a href="<?php echo base_url(); ?>department/editdepartment/<?php echo $ddata->departmentId;?>"><i class="fa fa-pencil"></i></a>
-                        <a onclick="return confirm('Are you sure you wish to delete this student?')" href="<?php echo base_url(); ?>student/deletestudent/<?php echo $ddata->departmentId;?>" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                        <a onclick="return confirm('Are you sure you wish to delete this department?')" href="<?php echo base_url(); ?>department/deletedepartment/<?php echo $ddata->departmentId;?>" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
                     </td>
                 </tr>
             <?php

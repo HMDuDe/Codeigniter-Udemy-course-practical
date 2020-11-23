@@ -52,5 +52,50 @@
             $data['footer'] = $this->load->view('inc/footer', '', TRUE);
             $this->load->view('departmentlist', $data);
         }
+
+        public function editdepartment($departmentId){
+            $data['title'] = 'Edit Department';
+            $data['header'] = $this->load->view('inc/header', $data, TRUE);
+            $data['sidebar'] = $this->load->view('inc/sidebar', '', TRUE);
+            $data['departmentDataById'] = $this->department_model->getDepartmentById($departmentId);
+            $data['departmentEdit'] = $this->load->view('inc/departmentEdit', $data, TRUE);
+            $data['footer'] = $this->load->view('inc/footer', '', TRUE);
+            $this->load->view('editDepartment', $data);
+        }
+
+        public function updateDepartment(){
+            $data['departmentId'] = $this->input->post('departmentId');
+            $data['departmentName'] = $this->input->post('departmentName');
+
+            //Validation
+            $departmentId = $data['departmentId'];
+            $departmentName = $data['departmentName'];
+
+            if(empty($departmentName)){
+                $ddata = array();
+                $ddata['msg'] = '<span style="color:red">Fields Must NOT be Empty</span>';
+
+                $this->session->set_flashdata($ddata);
+                redirect("department/editdepartment/".$departmentId);
+            }else{
+                $this->department_model->updateDepartmentData($data);
+
+                $ddata = array();
+                $ddata['msg'] = '<span style="color:green">Department Data Updated successfully</span>';
+
+                $this->session->set_flashdata($ddata);
+                redirect("department/editdepartment/".$departmentId);
+            }
+        }
+
+        public function deletedepartment($departmentId){
+            $this->department_model->deleteStudentById($departmentId);
+
+            $ddata = array();
+            $ddata['msg'] = '<span style="color:green">Department Data Deleted successfully</span>';
+
+            $this->session->set_flashdata($ddata);
+            redirect("department/departmentlist");
+        }
     }
 ?>
