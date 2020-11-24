@@ -31,7 +31,19 @@
                 <tr>
                     <td><?php echo $i ?></td>
                     <td><?php echo $sdata->name; ?></td>
-                    <td><?php echo $sdata->department; ?></td>
+
+                    <td>
+                    
+                      <?php 
+                        $departmentId = $sdata->department;
+                        $departmentData = $this->department_model->getDepartmentById($departmentId);
+                        
+                        echo $departmentData->departmentName;
+
+                      ?>
+                    
+                    </td>
+
                     <td><?php echo $sdata->roll; ?></td>
                     <td><?php echo $sdata->reg; ?></td>
                     <td><?php echo $sdata->phone; ?></td>

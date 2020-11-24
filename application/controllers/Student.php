@@ -17,7 +17,7 @@ class Student extends CI_Controller {
         $data['header'] = $this->load->view('inc/header', $data, TRUE);
         $data['sidebar'] = $this->load->view('inc/sidebar', '', TRUE);
         $data['departmentData'] = $this->department_model->getAllDepartments();
-        $data['studentAdd'] = $this->load->view('inc/studentAdd', '', TRUE);
+        $data['studentAdd'] = $this->load->view('inc/studentAdd', $data, TRUE);
         $data['footer'] = $this->load->view('inc/footer', '', TRUE);
         $this->load->view('addstudent', $data);
     }
@@ -67,6 +67,7 @@ class Student extends CI_Controller {
         $data['title'] = 'Student List';
         $data['header'] = $this->load->view('inc/header', $data, TRUE);
         $data['sidebar'] = $this->load->view('inc/sidebar', '', TRUE);
+        $data['departmentData'] = $this->department_model->getAllDepartments();
         $data['studentById'] = $this->student_model->getStudentById($studentId);
         $data['studentedit'] = $this->load->view('inc/studentedit', $data, TRUE);
         $data['footer'] = $this->load->view('inc/footer', '', TRUE);

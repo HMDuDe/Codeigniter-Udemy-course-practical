@@ -50,7 +50,7 @@
         }
 
         public function editauthor($authorId){
-            $data['title'] = 'Add New Author';
+            $data['title'] = 'Edit Author';
             $data['header'] = $this->load->view('inc/header', $data, TRUE);
             $data['sidebar'] = $this->load->view('inc/sidebar', '', TRUE);
             $data['authorDataById'] = $this->author_model->getAuthorDataById($authorId);
@@ -85,7 +85,7 @@
         }
 
         public function deleteauthor($authorId){
-            $this->author_model->deleteStudentById($authorId);
+            $this->author_model->deleteAuthorById($authorId);
 
             $adata = array();
             $adata['msg'] = '<span style="color:green">Author Data Deleted successfully</span>';

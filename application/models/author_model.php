@@ -33,7 +33,7 @@
             $this->db->update('tbl_author');
         }
 
-        public function deleteStudentById($authorId){
+        public function deleteAuthorById($authorId){
             $this->db->where('authorId', $authorId);
             $this->db->delete('tbl_author');
         }

@@ -17,10 +17,28 @@
             <label>Student Name</label>
             <input type="text" name="name" value="<?php echo $studentById->name; ?>" class="form-control span12">
         </div>
+
         <div class="form-group">
-            <label>Department</label>
-            <input type="text" name="department" value="<?php echo $studentById->department; ?>" class="form-control span12">
+            <label for="department">Department</label>
+            <select id="department" class="form-control" name="department">
+                <option>Select Department</option>
+
+                <?php 
+                    foreach($departmentData as $ddata){
+                        if($studentById->department == $ddata->departmentId){
+                            ?>
+                                <option value="<?php echo $ddata->departmentId; ?>" selected><?php echo $ddata->departmentName; ?></option>
+                            <?php
+                        }
+
+                        ?>
+                            <option value="<?php echo $ddata->departmentId; ?>"><?php echo $ddata->departmentName; ?></option>
+                        <?php
+                    }
+                ?>
+            </select>
         </div>
+
         <div class="form-group">
             <label>Roll No.</label>
             <input type="text" name="roll" value="<?php echo $studentById->roll; ?>" class="form-control span12">
